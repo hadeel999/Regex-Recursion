@@ -2,9 +2,36 @@
 
 function division(number, dividedBy){
     // Write you logic here.
-    if(number<dividedBy)
-    return 0;
-    return 1 + division(number-dividedBy, dividedBy);
+    if (number == 0)
+            return 0;
+        if (dividedBy == 0)
+            return 0;
+        let neg = false;
+ 
+        if (number < 0)
+        {
+            number = -number;
+            if (dividedBy < 0)
+                dividedBy = -dividedBy;
+            else
+            neg = true;
+        }
+        else if (dividedBy < 0)
+        {
+            dividedBy = -dividedBy;
+            neg = true;
+        }
+ 
+        let quotient = 0;
+        while (number >= dividedBy)
+        {
+            number = number - dividedBy;
+            quotient++;
+        }
+ 
+        if (neg)
+            quotient = -quotient;
+        return quotient;
 }
 
 /* Write a function that implement Math.pow(x,n) but using recursion
