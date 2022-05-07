@@ -8,10 +8,9 @@ characters (no numbers and symbols) and it should end with capital A else return
 function capitalA(s){
     // Add your logic.
     let checkNo=/\d/;
-    let checkSp=/\W/;
     let checkF=/A$/;
     let result;
-    (checkNo.test(s)||checkSp.test(s))?result=false:
+    (checkNo.test(s))?result=false:
     (checkF.test(s))? result=true:
     result=false;
     return result;
@@ -24,9 +23,9 @@ which end with io (example@example.io) */
 
 function ioEmail(email){
     // Add your logic.
-    let checkIO=/.io$/;
-    let checkSymbol=/\w\@\w/;
-    return checkSymbol.test(email)&&checkIO.test(email);
+    let x=(/^\w*@\w*\.io$/ig);
+    let result=x.test(email);
+    return result;
 }
 
 /* You have a text that contain image names with their extention you need to write a function to 
